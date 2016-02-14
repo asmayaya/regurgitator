@@ -5,8 +5,6 @@ Stack: Java
 ---
 <!--(Maintained Duplo labels above. Read more on http://info.api.no/handbook/guidelines/GitHub-guidelines.html)-->
 
-<!--(Maintained Duplo labels above. Read more on http://info.api.no/handbook/guidelines/GitHub-guidelines.html)-->
-
 <center><img src="https://raw.githubusercontent.com/amedia/regurgitator/master/regurgitator-service/src/main/design/regurgitator-logo.png" alt=The Regurgitator"/></center><br/>
 [![Issue Stats](http://www.issuestats.com/github/amedia/regurgitator/badge/pr?style=flat-square)](http://www.issuestats.com/github/amedia/regurgitator)
 [![Issue Stats](http://www.issuestats.com/github/amedia/regurgitator/badge/issue?style=flat-square)](http://www.issuestats.com/github/amedia/regurgitator)
