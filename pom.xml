@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>no.api.regurgitator</groupId>
-	<artifactId>regurgitator</artifactId>
-	<packaging>pom</packaging>
-	<version>1.0.2-SNAPSHOT</version>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>no.api.regurgitator</groupId>
+    <artifactId>regurgitator</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.2-SNAPSHOT</version>
 
-	<scm>
-		<connection>scm:git:ssh://git@github.com/amedia/regurgitator.git</connection>
-		<developerConnection>scm:git:ssh://git@github.com/amedia/regurgitator.git</developerConnection>
-    <tag>HEAD</tag>
-  </scm>
+    <scm>
+        <connection>scm:git:ssh://git@github.com/amedia/regurgitator.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/amedia/regurgitator.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
 
     <distributionManagement>
         <repository>
-            <id>api-repository</id>
-            <name>API Repository</name>
-            <url>scpexe://maven.api.no/usr/local/maven/repository</url>
+            <id>amedia-releases</id>
+            <name>Amedia Release Repository</name>
+            <url>http://nexus.dev.api.no/repository/amedia-releases/</url>
         </repository>
 
         <snapshotRepository>
-          <id>snapshots</id>
-          <name>nexus Snapshot Repository</name>
-          <url>http://ci.dev.api.no/nexus/content/repositories/snapshots</url>
+            <id>amedia-snapshots</id>
+            <name>nexus Snapshot Repository</name>
+            <url>http://nexus.dev.api.no/repository/amedia-snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
 
     <properties>
-		<!-- Notice that we want libraries to be in sync with the versions dropwizard use -->
-		<dropwizard.version>0.7.1</dropwizard.version>
-		<jackson.version>2.3.3</jackson.version>
-		<jetty.version>9.0.7.v20131107</jetty.version>
+        <!-- Notice that we want libraries to be in sync with the versions dropwizard use -->
+        <dropwizard.version>0.7.1</dropwizard.version>
+        <jackson.version>2.3.3</jackson.version>
+        <jetty.version>9.0.7.v20131107</jetty.version>
         <jersey.version>1.18.1</jersey.version>
         <!-- Must be in sync with the netty included by transitive dependencies -->
         <netty.version>4.0.14.Final</netty.version>
@@ -41,14 +41,14 @@
         <junit.version>4.12</junit.version>
         <littleproxy.version>1.0.0-beta8</littleproxy.version>
         <wiremock.version>1.57</wiremock.version>
-	</properties>
+    </properties>
 
     <prerequisites>
-      <maven>3.0.4</maven>
+        <maven>3.0.4</maven>
     </prerequisites>
 
-	<dependencyManagement>
-		<dependencies>
+    <dependencyManagement>
+        <dependencies>
             <dependency>
                 <groupId>org.littleshoot</groupId>
                 <artifactId>littleproxy</artifactId>
@@ -65,16 +65,16 @@
                 </exclusions>
             </dependency>
 
-           <dependency>
+            <dependency>
                 <groupId>com.thoughtworks.xstream</groupId>
                 <artifactId>xstream</artifactId>
                 <version>${xstream.version}</version>
-               <exclusions>
-                   <exclusion>
-                       <groupId>xpp3</groupId>
-                       <artifactId>xpp3_min</artifactId>
-                   </exclusion>
-               </exclusions>
+                <exclusions>
+                    <exclusion>
+                        <groupId>xpp3</groupId>
+                        <artifactId>xpp3_min</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
 
             <dependency>
@@ -150,11 +150,11 @@
                 <artifactId>junit</artifactId>
                 <version>${junit.version}</version>
             </dependency>
-			<dependency>
-				<groupId>no.api.regurgitator</groupId>
-				<artifactId>regurgitator-service</artifactId>
-				<version>${project.version}</version>
-			</dependency>
+            <dependency>
+                <groupId>no.api.regurgitator</groupId>
+                <artifactId>regurgitator-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
             <dependency>
                 <groupId>no.api.regurgitator</groupId>
                 <artifactId>regurgitator-storage</artifactId>
@@ -165,11 +165,11 @@
                 <artifactId>regurgitator-mock</artifactId>
                 <version>${project.version}</version>
             </dependency>
-			<dependency>
-				<groupId>org.slf4j</groupId>
-				<artifactId>slf4j-api</artifactId>
-				<version>${slf4j.version}</version>
-			</dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
             <dependency>
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-classic</artifactId>
@@ -182,93 +182,93 @@
                 <version>${jersey.version}</version>
             </dependency>
             <!-- == Jackson == - in order to keep the same version of the libraries -->
-			<dependency>
-				<groupId>com.fasterxml.jackson.core</groupId>
-				<artifactId>jackson-databind</artifactId>
-				<version>${jackson.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.fasterxml.jackson.core</groupId>
-				<artifactId>jackson-annotations</artifactId>
-				<version>${jackson.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.fasterxml.jackson.module</groupId>
-				<artifactId>jackson-module-scala_2.10</artifactId>
-				<version>${jackson.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.fasterxml.jackson.module</groupId>
-				<artifactId>jackson-module-jsonSchema</artifactId>
-				<version>${jackson.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.fasterxml.jackson.core</groupId>
-				<artifactId>jackson-core</artifactId>
-				<version>${jackson.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.fasterxml.jackson.jaxrs</groupId>
-				<artifactId>jackson-jaxrs-json-provider</artifactId>
-				<version>${jackson.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.fasterxml.jackson.datatype</groupId>
-				<artifactId>jackson-datatype-yaml</artifactId>
-				<version>${jackson.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.fasterxml.jackson.datatype</groupId>
-				<artifactId>jackson-datatype-joda</artifactId>
-				<version>${jackson.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.fasterxml.jackson.datatype</groupId>
-				<artifactId>jackson-datatype-guava</artifactId>
-				<version>${jackson.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.fasterxml.jackson.dataformat</groupId>
-				<artifactId>jackson-dataformat-yaml</artifactId>
-				<version>${jackson.version}</version>
-			</dependency>
-			<!-- == /Jackson == -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.module</groupId>
+                <artifactId>jackson-module-scala_2.10</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.module</groupId>
+                <artifactId>jackson-module-jsonSchema</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.jaxrs</groupId>
+                <artifactId>jackson-jaxrs-json-provider</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.datatype</groupId>
+                <artifactId>jackson-datatype-yaml</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.datatype</groupId>
+                <artifactId>jackson-datatype-joda</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.datatype</groupId>
+                <artifactId>jackson-datatype-guava</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.dataformat</groupId>
+                <artifactId>jackson-dataformat-yaml</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <!-- == /Jackson == -->
 
-			<dependency>
-				<groupId>io.dropwizard</groupId>
-				<artifactId>dropwizard-core</artifactId>
-				<version>${dropwizard.version}</version>
-			</dependency>
+            <dependency>
+                <groupId>io.dropwizard</groupId>
+                <artifactId>dropwizard-core</artifactId>
+                <version>${dropwizard.version}</version>
+            </dependency>
 
-			<dependency>
-				<groupId>io.dropwizard</groupId>
-				<artifactId>dropwizard-views</artifactId>
-				<version>${dropwizard.version}</version>
-			</dependency>
+            <dependency>
+                <groupId>io.dropwizard</groupId>
+                <artifactId>dropwizard-views</artifactId>
+                <version>${dropwizard.version}</version>
+            </dependency>
 
-			<dependency>
-				<groupId>io.dropwizard</groupId>
-				<artifactId>dropwizard-views-freemarker</artifactId>
-				<version>${dropwizard.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>io.dropwizard</groupId>
-				<artifactId>dropwizard-assets</artifactId>
-				<version>${dropwizard.version}</version>
-			</dependency>
+            <dependency>
+                <groupId>io.dropwizard</groupId>
+                <artifactId>dropwizard-views-freemarker</artifactId>
+                <version>${dropwizard.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.dropwizard</groupId>
+                <artifactId>dropwizard-assets</artifactId>
+                <version>${dropwizard.version}</version>
+            </dependency>
 
-			<dependency>
-				<groupId>io.dropwizard</groupId>
-				<artifactId>dropwizard-jdbi</artifactId>
-				<version>${dropwizard.version}</version>
-			</dependency>
+            <dependency>
+                <groupId>io.dropwizard</groupId>
+                <artifactId>dropwizard-jdbi</artifactId>
+                <version>${dropwizard.version}</version>
+            </dependency>
 
-			<dependency>
-				<groupId>io.dropwizard</groupId>
-				<artifactId>dropwizard-testing</artifactId>
-				<version>${dropwizard.version}</version>
-				<scope>test</scope>
-			</dependency>
+            <dependency>
+                <groupId>io.dropwizard</groupId>
+                <artifactId>dropwizard-testing</artifactId>
+                <version>${dropwizard.version}</version>
+                <scope>test</scope>
+            </dependency>
 
             <dependency>
                 <groupId>commons-io</groupId>
@@ -282,19 +282,10 @@
                 <version>2.6</version>
             </dependency>
 
-		</dependencies>
-	</dependencyManagement>
+        </dependencies>
+    </dependencyManagement>
 
-	<build>
-        <extensions>
-            <!-- maven3 will need wagon-ssh extension in order to be able to release,
-            Using external variant in order to retain keys, etc -->
-            <extension>
-                <groupId>org.apache.maven.wagon</groupId>
-                <artifactId>wagon-ssh-external</artifactId>
-                <version>2.5</version>
-            </extension>
-        </extensions>
+    <build>
         <pluginManagement>
             <plugins>
                 <plugin>
@@ -325,18 +316,6 @@
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-release-plugin</artifactId>
-                    <version>2.5.2</version>
-                    <dependencies>
-                        <dependency>
-                            <groupId>org.apache.maven.scm</groupId>
-                            <artifactId>maven-scm-provider-gitexe</artifactId>
-                            <version>1.9</version>
-                        </dependency>
-                    </dependencies>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>2.18.1</version>
                     <configuration>
@@ -352,7 +331,6 @@
             </plugins>
         </pluginManagement>
 
-        <!-- ===================== -->
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
